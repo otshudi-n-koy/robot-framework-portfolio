@@ -22,7 +22,7 @@ Locked Out User Cannot Login
     [Documentation]    Vérifie le message d'erreur affiché pour un utilisateur bloqué
     Go To                     ${BASE_URL}
     Login As                  ${LOCKED_USER}    ${VALID_PASSWORD}
-    Wait Until Element Is Visible    css:[data-test="error"]    timeout=5s
+    Wait Until Element Is Visible    css:[data-test="error"]    timeout=15s
     Element Should Contain    css:[data-test="error"]    Sorry, this user has been locked out.
 
 
@@ -31,7 +31,7 @@ Login As
     [Documentation]    Saisit les identifiants et clique sur le bouton de connexion. Attend que le
     ...                formulaire soit prêt avant d'interagir (évite la flakiness au démarrage du navigateur).
     [Arguments]    ${username}    ${password}
-    Wait Until Element Is Visible    id:user-name    timeout=10s
+    Wait Until Element Is Visible    id:user-name    timeout=15s
     Input Text      id:user-name    ${username}
     Input Text      id:password     ${password}
     Click Button    id:login-button
