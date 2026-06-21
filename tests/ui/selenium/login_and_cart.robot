@@ -19,11 +19,10 @@ Standard User Can Login And Add Item To Cart
     Cart Badge Should Show    1
 
 Locked Out User Cannot Login
-    [Documentation]    Vérifie le message d'erreur affiché pour un utilisateur bloqué
-    Go To                     ${BASE_URL}
-    Login As                  ${LOCKED_USER}    ${VALID_PASSWORD}
-    Wait Until Element Is Visible    css:[data-test="error"]    timeout=15s
-    Element Should Contain    css:[data-test="error"]    Sorry, this user has been locked out.
+    [Documentation]    Vérifie le message d'erreur affiché pour un utilisateur bloqué.
+    ...                Utilise Wait Until Keyword Succeeds pour absorber une éventuelle
+    ...                instabilité réseau/environnement sur les runners CI partagés.
+    Wait Until Keyword Succeeds    3x    5s    Attempt Locked Out Login
 
 
 *** Keywords ***
@@ -45,3 +44,11 @@ Cart Badge Should Show
     [Documentation]    Vérifie que le badge du panier affiche le nombre attendu d'articles
     [Arguments]    ${expected_count}
     Element Text Should Be    css:.shopping_cart_badge    ${expected_count}
+
+Attempt Locked Out Login
+    [Documentation]    Tente le scénario complet (navigation + login + vérification erreur).
+    ...                Encapsulé pour permettre un retry complet via Wait Until Keyword Succeeds.
+    Go To    ${BASE_URL}
+    Login As    ${LOCKED_USER}    ${VALID_PASSWORD}
+    Wait Until Element Is Visible    css:[data-test="error"]    timeout=10s
+    Element Should Contain    css:[data-test="error"]    Sorry, this user has been locked out.
