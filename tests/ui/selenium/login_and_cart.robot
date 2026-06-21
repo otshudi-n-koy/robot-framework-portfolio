@@ -32,8 +32,8 @@ Login As
     ...                formulaire soit prêt avant d'interagir (évite la flakiness au démarrage du navigateur).
     [Arguments]    ${username}    ${password}
     Wait Until Element Is Visible    id:user-name    timeout=15s
-    Input Text      id:user-name    ${username}
-    Input Text      id:password     ${password}
+    Press Keys      id:user-name    ${username}
+    Press Keys      id:password    ${password}
     Click Button    id:login-button
 
 Add Product To Cart
