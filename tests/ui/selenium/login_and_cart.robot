@@ -6,7 +6,7 @@ Documentation       Parcours UI sur SauceDemo (login -> ajout panier) avec Selen
 Library             SeleniumLibrary
 Resource            ../../../resources/variables.resource
 
-Suite Setup         Open Browser    ${BASE_URL}    headlesschrome
+Suite Setup         Open Browser    ${BASE_URL}    Chrome    options=add_argument("--headless=new");add_argument("--disable-gpu");add_argument("--no-sandbox")
 Suite Teardown      Close All Browsers
 
 
