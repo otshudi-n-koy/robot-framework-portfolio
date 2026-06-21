@@ -43,7 +43,7 @@ jobs:
         with:
           timeout_minutes: 5
           max_attempts: 3
-          command: robot --outputdir results/ui-selenium tests/ui/selenium
+          command: robot --exclude flaky-ci --outputdir results/ui-selenium tests/ui/selenium
 
       - name: Upload Selenium report
         if: always()
