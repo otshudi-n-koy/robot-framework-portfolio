@@ -6,6 +6,7 @@ L'objectif principal est de comparer concrètement deux approches d'automatisati
 
 ## Structure du projet
 
+```
 robot-framework-portfolio/
 ├── .github/workflows/ci.yml        # Pipeline CI : 3 jobs en parallèle
 ├── resources/
@@ -20,6 +21,7 @@ robot-framework-portfolio/
 │       └── booking_api.robot           # CRUD + authentification via RequestsLibrary
 ├── requirements.txt
 └── README.md
+```
 
 ## Comparaison SeleniumLibrary vs Browser Library
 
@@ -36,13 +38,14 @@ Les deux fichiers `login_and_cart.robot` implémentent **exactement le même sc�
 | Maturité / adoption en mission | Très répandue, nombreuses ressources | Plus récente, en croissance |
 
 ## Lancer les tests localement
-
+```
 pip install -r requirements.txt
 rfbrowser init          # uniquement nécessaire pour les tests Browser Library
 
 robot --outputdir results/api tests/api
 robot --outputdir results/ui-selenium tests/ui/selenium
 robot --outputdir results/ui-browser tests/ui/browser
+```
 
 ## CI/CD
 
