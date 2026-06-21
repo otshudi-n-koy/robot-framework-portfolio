@@ -1,5 +1,7 @@
 # Robot Framework Portfolio
 
+![CI](https://github.com/otshudi-n-koy/robot-framework-portfolio/actions/workflows/ci.yml/badge.svg)
+
 Projet de démonstration Robot Framework couvrant l'automatisation **UI** et **API**, avec intégration **CI/CD** sur GitHub Actions.
 
 L'objectif principal est de comparer concrètement deux approches d'automatisation UI en Robot Framework : la bibliothèque historique **SeleniumLibrary** et la bibliothèque moderne **Browser Library** (basée sur Playwright).
