@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+
+# Robot Framework outputs
+output.xml
+log.html
+report.xml
+results/
+*.png
+
+# OS
+.DS_Store
+Thumbs.db
